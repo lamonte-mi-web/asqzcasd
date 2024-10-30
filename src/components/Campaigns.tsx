@@ -64,12 +64,12 @@ const Campaigns: React.FC = () => {
   }
 
   return (
-    <div className="font-poppins px-8 mt-36">
-      <h1 className="text-6xl font-bold mb-6 text-center">
+    <div className="font-poppins px-8 mt-24">
+      <h1 className="text-5xl md:text-6xl font-bold mb-6 text-justify md:text-center">
         <p>Mengubah Hidup,</p>
         <p>Membentuk Masa Depan</p>
       </h1>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 justify-items-center">
+      <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 md:gap-6 justify-items-center">
         {cards.map((card, index) => (
           <Card
             key={index}

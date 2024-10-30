@@ -97,7 +97,7 @@ const CampaignDetail: React.FC<CampaignDetailProps> = ({
             <DonationButton
               buttonText={campaign.buttonText}
               setVisible={setIsDonationPopupVisible}
-              className="my-custom-class" // Tambahkan className sesuai kebutuhan
+              className="bg-mahakarya"
             />
             <button
               onClick={() => router.back()}
@@ -134,7 +134,7 @@ export const getServerSideProps: GetServerSideProps = async ({ params }) => {
   let totalAmount = 0;
   try {
     const response = await fetch(
-      `https://vercel-backend-flax.vercel.app/total-amount/${campaign.id}`,
+      `https://new-backend-vercel.vercel.app/total-amount/${campaign.id}`,
       {
         method: "GET",
         headers: {

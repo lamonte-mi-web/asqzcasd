@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import CardCampaign from "../components/CardCampaign";
 import { getCampaigns } from "../utils/campaign"; // Mengimpor fungsi untuk mengambil data dari Firebase
+import TitleRouter from "@/components/TitleRouter";
 
 // Mendefinisikan tipe Campaign
 interface Campaign {
@@ -44,24 +45,27 @@ const Home = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gray-100 py-10">
-      <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {campaignData.map((campaign) => (
-            <CardCampaign
-              key={campaign.id}
-              id={campaign.id}
-              title={campaign.title}
-              description={campaign.description}
-              buttonText={campaign.buttonText}
-              imageUrl={campaign.imageUrl}
-              endDate={campaign.endDate}
-              targetAmount={campaign.targetAmount}
-            />
-          ))}
+    <>
+      <TitleRouter />
+      <div className="min-h-screen bg-gray-100 py-10">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {campaignData.map((campaign) => (
+              <CardCampaign
+                key={campaign.id}
+                id={campaign.id}
+                title={campaign.title}
+                description={campaign.description}
+                buttonText={campaign.buttonText}
+                imageUrl={campaign.imageUrl}
+                endDate={campaign.endDate}
+                targetAmount={campaign.targetAmount}
+              />
+            ))}
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

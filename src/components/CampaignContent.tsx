@@ -35,7 +35,7 @@ const CampaignContent: React.FC<CampaignContentProps> = ({ campaignId }) => {
         setCampaign(foundCampaign);
         try {
           const response = await fetch(
-            `https://vercel-backend-flax.vercel.app/total-amount/${foundCampaign.id}`
+            `https://new-backend-vercel.vercel.app/total-amount/${foundCampaign.id}`
           );
           const data = await response.json();
           setTotalAmount(data.totalAmount || 0);
@@ -61,7 +61,7 @@ const CampaignContent: React.FC<CampaignContentProps> = ({ campaignId }) => {
     setIsLoading(true);
     try {
       const response = await fetch(
-        "https://vercel-backend-flax.vercel.app/donate",
+        "https://new-backend-vercel.vercel.app/donate",
         {
           method: "POST",
           headers: {
@@ -102,7 +102,7 @@ const CampaignContent: React.FC<CampaignContentProps> = ({ campaignId }) => {
 
   const handleQuickAmount = (value: number) => {
     setAmount(value.toString());
-    setErrorMessage(null); // Clear any previous error
+    setErrorMessage(null);
   };
 
   const remainingAmount = parseInt(campaign.targetAmount) - totalAmount;
@@ -113,13 +113,13 @@ const CampaignContent: React.FC<CampaignContentProps> = ({ campaignId }) => {
 
   return (
     <div>
-      <div className="flex mt-36 py-16 justify-between items-center bg-mkspurple bg-opacity-[0.06]">
-        <div className="order-2 w-[40%]">
-          <div className="mb-5 pr-36">
+      <div className="flex flex-col md:flex-row mt-24 py-16 justify-between items-center bg-mkspurple bg-opacity-[0.1]">
+        <div className="order-1 md:order-2 md:w-[40%] w-full px-8">
+          <div className="mb-5 md:pr-36">
             <img
               src={campaign.imageUrl}
               alt={campaign.title}
-              className="object-cover w-full max-w-full"
+              className="object-cover w-full max-w-full px-4  "
             />
             <p className="text-center font-bold my-3">
               {percentage.toFixed(2)}%
@@ -154,11 +154,11 @@ const CampaignContent: React.FC<CampaignContentProps> = ({ campaignId }) => {
             </div>
           </div>
         </div>
-        <div className="order-1 flex flex-col w-[40%] justify-center ml-36 space-y-6 text-left">
-          <h2 className="text-5xl font-bold text-mksdarkpurple">
-            Buka Jalan Masa Depan bagi Setiap Anak
+        <div className="order-2 md:order-1 px-8 flex flex-col md:w-[40%] justify-center md:ml-36 space-y-6 text-left">
+          <h2 className="text-4xl md:text-5xl font-bold text-mksdarkpurple">
+            {campaign.title}
           </h2>
-          <p className="text-lg text-mksdarkgray">
+          <p className="text-md md:text-lg text-mksdarkgray">
             Kami berkomitmen untuk memastikan setiap anak mendapatkan pendidikan
             berkualitas, tanpa memandang latar belakang mereka. Mulai dari
             membangun sekolah di daerah terpencil hingga menyediakan beasiswa
@@ -191,14 +191,14 @@ const CampaignContent: React.FC<CampaignContentProps> = ({ campaignId }) => {
                 value={phone}
                 onChange={setPhone}
                 placeholder="Nomor Telepon"
-                inputClass="border border-gray-300 rounded w-full p-2"
+                inputClass="border border-gray-300 rounded min-w-full p-2"
                 buttonClass="border border-gray-300"
               />
-              {errorMessage && (
+              {/* {errorMessage && (
                 <p className="text-red-500 text-sm mb-2">{errorMessage}</p>
-              )}
+              )} */}
 
-              <div className="flex gap-2 mb-4">
+              <div className="flex flex-wrap gap-2 my-4">
                 {[20000, 50000, 75000, 100000, 500000].map((value) => (
                   <button
                     key={value}

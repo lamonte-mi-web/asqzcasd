@@ -17,7 +17,7 @@ const ThankYouPage: React.FC = () => {
     if (router.isReady) {
       const { order_id } = router.query;
       if (order_id) {
-        console.log(order_id);
+        // console.log(order_id);
         // Lakukan fetch data transaksi dari Firebase berdasarkan order_id
         fetchTransactionData(order_id as string);
       } else {

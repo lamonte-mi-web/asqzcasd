@@ -7,14 +7,14 @@ export default function CTA() {
   const [isDonationPopupVisible, setIsDonationPopupVisible] = useState(false);
 
   return (
-    <div className="flex flex-col items-center justify-center py-10">
+    <div className="flex flex-col items-center justify-center py-10 px-8">
       <p className="text-center text-xl mb-6 max-w-[800px]">
         Dukung berbagai inisiatif sosial dan proyek kemanusiaan. Setiap
         kontribusi Anda membawa harapan dan dampak nyata bagi mereka yang
         membutuhkan.
       </p>
 
-      <div className="flex space-x-4">
+      <div className="flex flex-col md:flex-row text-center space-y-4 md:space-y-0 md:space-x-4 w-full md:w-auto">
         <DonationButton
           buttonText="Donasi Sekarang →" // Menggunakan text untuk tombol
           setVisible={setIsDonationPopupVisible} // Mengatur visibilitas popup

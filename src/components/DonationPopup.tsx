@@ -17,6 +17,7 @@ const DonationPopup: React.FC<DonationPopupProps> = ({
   const [name, setName] = useState<string>("");
   const [email, setEmail] = useState<string>("");
   const [phone, setPhone] = useState<string>("");
+  const [message, setMessage] = useState<string>("");
   const [isAnonymous, setIsAnonymous] = useState<boolean>(false);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [redirectUrl, setRedirectUrl] = useState<string>("");
@@ -68,7 +69,7 @@ const DonationPopup: React.FC<DonationPopupProps> = ({
     setIsLoading(true);
     try {
       const response = await fetch(
-        "https://vercel-backend-flax.vercel.app/donate",
+        "https://new-backend-vercel.vercel.app/donate",
         {
           method: "POST",
           headers: {
@@ -84,6 +85,7 @@ const DonationPopup: React.FC<DonationPopupProps> = ({
               : email || "anonim@gmail.com",
             phone: isAnonymous ? "1234567891011" : phone || "1234567891011",
             campaignId: campaignId || null,
+            message: message.trim() || "",
           }),
         }
       );
@@ -108,7 +110,7 @@ const DonationPopup: React.FC<DonationPopupProps> = ({
   const checkPaymentStatus = async (orderId: string) => {
     try {
       const response = await fetch(
-        `https://vercel-backend-flax.vercel.app/status/${orderId}`,
+        `https://new-backend-vercel.vercel.app/status/${orderId}`,
         {
           method: "GET",
           headers: {
@@ -132,6 +134,7 @@ const DonationPopup: React.FC<DonationPopupProps> = ({
     setEmail("");
     setPhone("");
     setIsAnonymous(false);
+    setMessage("");
   };
 
   return (
@@ -191,8 +194,14 @@ const DonationPopup: React.FC<DonationPopupProps> = ({
               value={phone}
               onChange={setPhone}
               placeholder="Nomor Telepon"
-              inputClass="border border-gray-300 rounded w-full"
+              inputClass="border border-gray-300 rounded min-w-full"
               buttonClass="border border-gray-300"
+            />
+            <textarea
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
+              placeholder="Pesan untuk yayasan"
+              className="border border-gray-300 rounded w-full p-2 mt-4 mb-4"
             />
             <div className="mb-4">
               <label className="flex items-center">

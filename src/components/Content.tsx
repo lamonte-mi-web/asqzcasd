@@ -3,8 +3,8 @@ import Image from "next/image";
 export default function Content() {
   return (
     <div>
-      <div className="flex lg:flex-row gap-8 items-center justify-center space-x-16 bg-white absolute left-[5%] w-[90%] py-8 mt-[-104px]">
-        <div className="flex items-center">
+      <div className="flex flex-col md:flex-row gap-8 items-center justify-center w-fit px-8 rounded-xl text-center md:space-x-16 bg-white shadow-2xl md:absolute left-[5%] mx-auto md:w-[90%] py-8 md:mt-[-104px]">
+        <div className="flex flex-col md:flex-row items-center">
           <Image src="/assets/IconOne.png" width={78} height={78} alt="Icon" />
           <div className="flex flex-col">
             <div className="flex">
@@ -59,8 +59,8 @@ export default function Content() {
           </div>
         </div>
       </div>
-      <div className="flex items-center mt-36 bg-mkspurple bg-opacity-[0.06]">
-        <div className="order-1 w-[40%]">
+      <div className="flex flex-col md:flex-row items-center bg-mkspurple mt-8 bg-opacity-[0.06]">
+        <div className="order-1 md:w-[40%] w-full h-auto">
           <Image
             src="/assets/Content.png"
             alt="Children holding books"
@@ -70,8 +70,8 @@ export default function Content() {
           />
         </div>
 
-        <div className="order-2 flex flex-col w-[40%] justify-center ml-36 space-y-6 text-center lg:text-left">
-          <h2 className="text-5xl font-bold text-mksdarkpurple">
+        <div className="order-2 flex flex-col md:w-[40%] w-full justify-center md:ml-36 p-8 space-y-6 text-center lg:text-left">
+          <h2 className="text-[40px] md:text-6xl font-bold text-mksdarkpurple">
             Membangun Harapan Baru
           </h2>
           <p className="text-lg text-mksdarkgray">
@@ -84,7 +84,7 @@ export default function Content() {
           <div>
             <a
               href="#"
-              className="inline-block bg-mkspurple text-white py-3 px-6 text-lg font-semibold rounded-lg hover:bg-mkspurplehover transition-colors"
+              className="inline-block bg-mkspurple w-full md:max-w-content text-white py-3 px-6 text-lg font-semibold rounded-lg hover:bg-mkspurplehover transition-colors"
             >
               Bergabung Sekarang →
             </a>

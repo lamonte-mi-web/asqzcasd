@@ -34,7 +34,7 @@ const CardCampaign: React.FC<CardCampaignProps> = ({
 
   // Menghitung sisa hari
   const remainingDays = calculateRemainingDays(endDate);
-  console.log(remainingDays);
+  // console.log(remainingDays);
   const isCampaignEnded = remainingDays < 0; // Cek apakah kampanye telah berakhir
   // console.log(isCampaignEnded);
 
@@ -42,7 +42,7 @@ const CardCampaign: React.FC<CardCampaignProps> = ({
     const fetchTotalAmount = async () => {
       try {
         const response = await fetch(
-          `https://vercel-backend-flax.vercel.app/total-amount/${id}`,
+          `https://new-backend-vercel.vercel.app/total-amount/${id}`,
           {
             method: "GET",
             headers: {
